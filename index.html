@@ -1,0 +1,2914 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NTT | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="dist/ionicons-2.0.1/css/ionicons.min.css" />
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link
+      rel="stylesheet"
+      href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css"
+    />
+    <!-- iCheck -->
+    <link
+      rel="stylesheet"
+      href="plugins/icheck-bootstrap/icheck-bootstrap.min.css"
+    />
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css" />
+    <!-- overlayScrollbars -->
+    <link
+      rel="stylesheet"
+      href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css"
+    />
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css" />
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Include ApexCharts CSS -->
+    <link rel="stylesheet" href="dist/css/apexcharts.min.css" />
+  </head>
+  <body class="sidebar-mini layout-fixed sidebar-collapse blue-bg">
+    <div class="wrapper">
+      <!-- Preloader -->
+      <div
+        class="preloader flex-column justify-content-center align-items-center"
+      >
+        <img
+          class="animation__shake"
+          src="dist/img/icon.png"
+          alt="NTT-Logo"
+          height="60"
+          width="60"
+        />
+      </div>
+
+      <!-- Navbar -->
+      <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <div class="logo-sec">
+          <img src="dist/img/logo-light.png" alt="logo" />
+        </div>
+
+        <!-- Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+              <i class="fas fa-expand-arrows-alt"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.navbar -->
+      <!-- Content Wrapper. Contains page content -->
+      <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1 class="m-0">Dashboard</h1>
+              </div>
+              <!-- /.col -->
+              <!-- <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Home</a></li>
+                  <li class="breadcrumb-item active">Dashboard v1</li>
+                </ol>
+              </div> -->
+              <!-- /.col -->
+            </div>
+            <!-- /.row -->
+
+            <!-- Small boxes (Stat box) -->
+
+            <!-- /.row -->
+          </div>
+          <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+          <div class="container-fluid">
+            <!-- /.row (main row) -->
+            <div class="row">
+              <section class="col-lg-3 connectedSortable">
+                <!-- contract Chart -->
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="card">
+                      <div class="card-header">
+                        <h3 class="card-title">
+                          <i class="ion ion-clipboard mr-1"></i>
+                          Contract demand
+                        </h3>
+
+                        <div class="card-tools">
+                          <button
+                            type="button"
+                            class="btn btn-tool"
+                            data-card-widget="collapse"
+                          >
+                            <i class="fas fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <!-- /.card-header -->
+                      <div class="card-body">
+                        <div id="chart"></div>
+                      </div>
+                      <!-- /.card-body -->
+                    </div>
+                  </div>
+
+                  <div class="col-md-5">
+                    <div class="card">
+                      <div class="widget-user-header bg-orange">
+                        <!-- /.widget-user-image -->
+                        <h3 class="widget-user-username align-center">
+                          11 KV GIS HT Panel-A&B (Voltage)
+                        </h3>
+                      </div>
+                      <div class="card-footer p-0 ryb">
+                        <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              HT-A R-Y(kV)
+                              <span
+                                class="float-right badge bg-danger"
+                                id="phase-r"
+                              ></span
+                              >
+                            </a>
+<a href="#" class="nav-link">
+                              HT-B R-Y(kV)
+                              <span
+                                class="float-right badge bg-danger"
+                                id="phase-r1"
+                              ></span>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              HT-A Y-B(kV)
+                              <span
+                                class="float-right badge bg-warning"
+                                id="phase-y"
+                              ></span
+                              >
+                            </a>
+<a href="#" class="nav-link">
+                              HT-B Y-B(kV)
+                              <span
+                                class="float-right badge bg-warning"
+                                id="phase-y1"
+                              ></span>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              HT-A B-R(kV)
+                              <span
+                                class="float-right badge bg-primary"
+                                id="phase-b"
+                              ></span
+                              >
+                            </a>
+<a href="#" class="nav-link">
+                              HT-B B-R(kV)
+                              <span
+                                class="float-right badge bg-primary"
+                                id="phase-b1"
+                              ></span>
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div class="card card-widget widget-user-2">
+                      <div class="card-header">
+                        <h3 class="card-title"></h3>
+
+                        <div class="card-tools">
+                          <button type="button" class="btn btn-tool"></button>
+                        </div>
+                      </div>
+                      <div class="card-bod ryb">
+                        <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              EB POWER STATUS
+                              <span
+                                class="float-right badge power-status"
+                                id="eb_power"
+                                >&nbsp;</span
+                              >
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div>
+                      <!-- small box -->
+                      <div class="small-box bg-success">
+                        <div class="inner">
+                          <h3 id="PUE">0</h3>
+
+                          <p>PUE</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-leaf"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- ./col -->
+                    <div>
+                      <!-- small box -->
+                      <div class="small-box bg-primary">
+                        <div class="inner">
+                          <h3 id="PF">0</h3>
+
+                          <p>PF</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-stats-bars"></i>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- ./col -->
+                    <div>
+                      <!-- small box -->
+                      <div class="small-box bg-warning">
+                        <div class="inner">
+                          <h3 id="ikW">0</h3>
+
+                          <p>ikW</p>
+                        </div>
+                        <div class="icon">
+                          <i class="ion ion-flash"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="card card-widget widget-user-2">
+                      <div class="card-header">
+                        <div class="card-tools">
+                          <button
+                            type="button"
+                            class="btn btn-tool"
+                            data-card-widget="collapse"
+                          >
+                            <i class="fas fa-minus"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <!-- Add the bg color to the header using any of the bg-* classes -->
+                      <div class="widget-user-header bg-warning">
+                        <div class="widget-user-image">
+                          <img
+                            class="img-circle elevation-2"
+                            src="dist/img/ekg.png"
+                            alt="User Avatar"
+                          />
+                        </div>
+                        <!-- /.widget-user-image -->
+                        <h3 class="widget-user-username">BMS SERVER HEALTH</h3>
+                        <h5 class="widget-user-desc">STATUS</h5>
+                      </div>
+                      <div class="card-footer p-0">
+                        <ul class="nav flex-column">
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              BMS SERVER A
+                              <span class="float-right badge" id="srv_a"
+                                >NORMAL</span
+                              >
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="#" class="nav-link">
+                              BMS SERVER B
+                              <span class="float-right badge" id="srv_b"
+                                >FALSE</span
+                              >
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card direct-chat direct-chat-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Fuel Status</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body info-sec">
+                    <div class="info-box">
+                      <span class="info-box-icon bg-warning"
+                        ><i class="fa fa-chart-bar"></i
+                      ></span>
+
+                      <div class="info-box-content">
+                        <span class="info-box-text"
+                          >Total Fuel Stock (LTR)</span
+                        >
+                        <span class="info-box-number" id="fuel_stock"
+                          >82500</span
+                        >
+                      </div>
+                      <!-- /.info-box-content -->
+                    </div>
+                    <div class="info-box">
+                      <span class="info-box-icon bg-info"
+                        ><i class="fa fa-clock"></i
+                      ></span>
+
+                      <div class="info-box-content">
+                        <span class="info-box-text"
+                          >Estimated Backup Hourse</span
+                        >
+                        <span class="info-box-number" id="fuel_bkp_hr"
+                          >78.5</span
+                        >
+                      </div>
+                      <!-- /.info-box-content -->
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Table -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="ion ion-clipboard mr-1"></i>
+                      Floor Wise PUE
+                    </h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body table-widget">
+                    <table id="dynamicTable" class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th rowspan="2" style="width: 10px">Sl No</th>
+                          <th rowspan="2">Floor</th>
+                          <th colspan="2">EL_RM_ A</th>
+                          <th colspan="2">EL_RM_ B</th>
+                          <th colspan="2">EL_RM_ C</th>
+                          <!-- <th rowspan="2">Electrical Room - FPP</th> -->
+                          <th rowspan="2">Total UIP</th>
+                          <th rowspan="2">Total UOP</th>
+                          <th rowspan="2">PUE</th>
+                        </tr>
+                        <tr>
+                          <th>UIP</th>
+                          <th style="width: 40px">UOP</th>
+                          <th>UIP</th>
+                          <th style="width: 40px">UOP</th>
+                          <th>UIP</th>
+                          <th style="width: 40px">UOP</th>
+                        </tr>
+                      </thead>
+                      <tbody></tbody>
+                    </table>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+              </section>
+              <section class="col-lg-3 connectedSortable">
+                <!-- customerwise card -->
+                <div class="card">
+                  <div class="card-header border-0">
+                    <h3 class="card-title">
+                      <i class="fas fa-temperature mr-1"></i>
+                      Customer wise T+RH Sensor
+                    </h3>
+                    <!-- card tools -->
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                        title="Collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                    <!-- /.card-tools -->
+                  </div>
+
+                  <div class="card-body">
+                    <div class="tab-content p-0 barchart-temp">
+                      <!-- Morris chart - Sales -->
+                      <canvas
+                        width="100%"
+                        id="myChart"
+                        style="
+                          min-height: 530px;
+                          height: 530px;
+                          max-height: 530px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+
+                <!-- TX chart (Charts with tabs)-->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="fas .fa-temperature-low mr-1"></i>
+                      TX Load Details
+                    </h3>
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="tab-content p-0">
+                      <!-- Morris chart - Sales -->
+                      <canvas
+                        id="barChart"
+                        style="
+                          min-height: 375px;
+                          height: 375px;
+                          max-height: 375px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+                <!-- Cooling CHAT -->
+                <div class="card direct-chat direct-chat-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">DG Load(Kw)</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="chart">
+                      <canvas
+                        id="barChart4"
+                        style="
+                          min-height: 400px;
+                          height: 400px;
+                          max-height: 400px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+                <!--/.cooling-chat -->
+              </section>
+              <section class="col-lg-3 connectedSortable">
+                <!-- PDU CHAT -->
+                <div class="card direct-chat direct-chat-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">PDU A,B & C Source kVA</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="chart">
+                      <canvas
+                        id="barChart2"
+                        style="
+                          min-height: 250px;
+                          height: 350px;
+                          max-height: 350px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+                <!--/.direct-chat -->
+
+                <!-- SH tabs (Charts with tabs)-->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="fas .fa-temperature-low mr-1"></i>
+                      SH AVG TEMP & RH
+                    </h3>
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="chart">
+                      <canvas
+                        id="lineChart"
+                        style="
+                          min-height: 250px;
+                          height: 250px;
+                          max-height: 250px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                  <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+
+                <!-- HVAC CHAT -->
+                <div class="card direct-chat direct-chat-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      CDU,Dry Cooler & Floorwise Cooling Load(kW)
+                    </h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="chart">
+                      <canvas
+                        id="barChart5"
+                        style="
+                          min-height: 250px;
+                          height: 340px;
+                          max-height: 340px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+                <!-- Cooling CHAT -->
+                <div class="card direct-chat direct-chat-primary">
+                  <div class="card-header">
+                    <h3 class="card-title">Chiller Load(Kw)</h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="chart">
+                      <canvas
+                        id="barChart6"
+                        style="
+                          min-height: 375px;
+                          height: 375px;
+                          max-height: 375px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+                <!--/.cooling-chat -->
+              </section>
+              <!-- /.Left col -->
+              <section class="col-lg-3 connectedSortable">
+                <!-- ./col -->
+                <div class="row">
+                  <div class="col-md-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                      <div class="inner">
+                        <h3 id="roomTemp">25°C</h3>
+
+                        <p>Ambient Temperature</p>
+                      </div>
+                      <div class="icon">
+                        <i class="ion ion-thermometer"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                  <div class="col-md-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                      <div class="inner">
+                        <h3 id="roomHum">50.3</h3>
+
+                        <p>Ambient Humidity</p>
+                      </div>
+                      <div class="icon">
+                        <i class="ion ion-waterdrop"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ./col -->
+                </div>
+                <!-- IT  Load -->
+                <div class="card card-primary card-outline">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="far fa-chart-bar"></i>
+                      IT & Non IT load
+                    </h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div id="donut-chart" style="height: 360px"></div>
+                  </div>
+                  <!-- /.card-body-->
+                </div>
+                <!-- /.card -->
+                <!-- UPS CHART -->
+                <div class="card">
+                  <div class="card-header">
+                    <h3 class="card-title">
+                      <i class="ion ion-clipboard mr-1"></i>
+                      UPS IT Load & Non IT Load Kw
+                    </h3>
+
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="chart">
+                      <canvas
+                        id="barChart3"
+                        style="
+                          min-height: 375px;
+                          height: 375px;
+                          max-height: 375px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+                <!-- floorwise card -->
+                <div class="card">
+                  <div class="card-header border-0">
+                    <h3 class="card-title">
+                      <i class="fas fa-temperature mr-1"></i>
+                      Floor wise T+RH Sensor
+                    </h3>
+                    <!-- card tools -->
+                    <div class="card-tools">
+                      <button
+                        type="button"
+                        class="btn btn-tool"
+                        data-card-widget="collapse"
+                        title="Collapse"
+                      >
+                        <i class="fas fa-minus"></i>
+                      </button>
+                    </div>
+                    <!-- /.card-tools -->
+                  </div>
+
+                  <div class="card-body">
+                    <div class="tab-content p-0 barchart-temp">
+                      <!-- Morris chart - Sales -->
+                      <canvas
+                        id="floorChart"
+                        style="
+                          min-height: 260px;
+                          height: 430px;
+                          max-height: 430px;
+                          max-width: 100%;
+                        "
+                      ></canvas>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.card -->
+              </section>
+            </div>
+          </div>
+          <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.content-wrapper -->
+      <footer class="main-footer">
+        <strong>Copyright &copy; <span id="currentYear"></span>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+          <b>Version</b> 3.2.0
+        </div>
+      </footer>
+    </div>
+    <!-- ./wrapper -->
+
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+      $.widget.bridge("uibutton", $.ui.button);
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    </script>
+    <!-- chart -->
+    <script src="dist/js/chart.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="dist/js/apexcharts.js"></script>
+    <!-- config  -->
+    <!-- <script src="url_config.js"></script> -->
+
+    <script type="text/javascript">
+      var url = "http://10.230.192.2"; //eg:` "https://localhost:80"; `  do not add last slash 
+      var temp = "ambientTemperature"; // temperature
+      var hum = "ambientHumidity"; // humidity
+      var pue = "PUE"; // pue
+      var pf = "PF"; // PF
+      var ikW = "ikW"; // ikW
+
+      // Voltage
+      var phase_r = "phase_r";
+      var phase_y = "phase_y";
+      var phase_b = "phase_b";
+      var phase_r1 = "phase_r1";
+      var phase_y1 = "phase_y1";
+      var phase_b1 = "phase_b1";
+
+      // BMS SRV Health Status
+      //
+      var srv_a = "srv_a";
+      var srv_b = "srv_b";
+
+      //EB Power Status
+      var eb_Sts = "power_sts";
+
+      //fuel Status
+      var fuel_stock_sts = "fuel_stock";
+      var fuel_bkp_hr = "bkp_hrs";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var options = {
+          series: [5000, 3700, 70],
+          chart: {
+            height: 330,
+            type: "radialBar",
+          },
+          plotOptions: {
+            radialBar: {
+              offsetY: 0,
+              startAngle: 0,
+              // endAngle: 270,
+              hollow: {
+                margin: 5,
+                size: "30%",
+                background: "transparent",
+                image: undefined,
+              },
+              dataLabels: {
+                name: {
+                  show: false,
+                },
+                value: {
+                  show: false,
+                },
+              },
+            },
+          },
+          colors: ["#b83835", "#db7835", "#624684"],
+          labels: ["Contract Demand", "Actual Consumption", "'%' Utilization"],
+          legend: {
+            showForSingleSeries: true,
+            show: true,
+            floating: true,
+            fontSize: "16px",
+            position: "right",
+            // offsetX: 0,
+            // offsetY: 15,
+            labels: {
+              useSeriesColors: true,
+            },
+            markers: {
+              size: 0,
+            },
+            formatter: function (seriesName, opts) {
+              return (
+                seriesName + ":  " + opts.w.globals.series[opts.seriesIndex]
+              );
+            },
+            itemMargin: {
+              vertical: 0,
+            },
+            offsetY: -20,
+            height: 530,
+          },
+          grid: {
+            show: true,
+            padding: { left: -10, right: 0, top: 40, bottom: 0 },
+          },
+          zindex: 999999,
+          responsive: [
+            {
+              breakpoint: 480,
+              options: {
+                legend: {
+                  show: false,
+                },
+              },
+            },
+          ],
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+
+        var radial_chart_URL =
+          url + "/obix/config/Drivers/Dashboard/contractDemand/";
+
+        var getRadialData = function () {
+          fetch(radial_chart_URL)
+            .then((response) => response.text())
+            .then((data) => {
+              const parser = new DOMParser();
+              const xmlDOM = parser.parseFromString(data, "text/xml");
+              const value = xmlDOM.getElementsByTagName("ref");
+
+              const newData = [];
+
+              for (var i = 0; i < value.length; i++) {
+                var point = value[i];
+                var pointNameFilter = point
+                  .getAttribute("display")
+                  .replace(/(^\d+)(.+$)/i, "$1");
+                var pointValue = parseInt(pointNameFilter);
+
+                newData.push(pointValue);
+              }
+
+              // Update the chart data
+              chart.updateSeries(newData);
+            });
+        };
+
+        // Call the function initially
+        getRadialData();
+
+        // Set interval to update the chart every 5000 milliseconds (5 seconds)
+        setInterval(getRadialData, 5000);
+      });
+    </script>
+
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="plugins/moment/moment.min.js"></script>
+    <script src="plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- Sarbaz App -->
+    <script src="dist/js/adminlte.js"></script>
+    <!-- FLOT CHARTS -->
+    <script src="plugins/flot/jquery.flot.js"></script>
+    <!-- FLOT RESIZE PLUGIN - allows the chart to redraw when the window is resized -->
+    <script src="plugins/flot/plugins/jquery.flot.resize.js"></script>
+    <!-- FLOT PIE PLUGIN - also used to draw donut charts -->
+    <script src="plugins/flot/plugins/jquery.flot.pie.js"></script>
+    <!-- Sarbaz for demo purposes -->
+    <!-- <script src="dist/js/demo.js"></script> -->
+    <!-- Sarbaz dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard.js"></script>
+    <script src="dist/js/chartjs-plugin-datalabels.min.js"></script>
+
+    <script>
+      function labelFormatter(t, a) {
+        return (
+          '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">' +
+          t +
+          "<br>Value: " +
+          a.data[0][1] +
+          "<br>" +
+          Math.round(a.percent) +
+          "% <br /> </div> "
+        );
+      }
+      jQuery(function () {
+        const barChartCanvas = document
+          .getElementById("myChart")
+          .getContext("2d");
+
+        // Create gradients
+        const temperatureGradient = barChartCanvas.createLinearGradient(
+          0,
+          0,
+          0,
+          1000
+        );
+        temperatureGradient.addColorStop(1, "rgba(130, 43, 241, 1)");
+        temperatureGradient.addColorStop(0, "rgba(130, 43, 241, 1)");
+
+        const humidityGradient = barChartCanvas.createLinearGradient(
+          0,
+          0,
+          0,
+          1000
+        );
+        humidityGradient.addColorStop(1, "rgba(0, 175, 8, 1)");
+        humidityGradient.addColorStop(0, "rgba(0, 175, 8, 1)");
+
+        // Chart initialization
+        const chartData = {
+          temperature: {},
+          humidity: {},
+        };
+
+        const chartOptions = {
+          type: "horizontalBar",
+          data: {
+            labels: [],
+            datasets: [
+              {
+                label: "Temperature",
+                data: [],
+                backgroundColor: temperatureGradient,
+                borderWidth: 1,
+                borderColor: "rgba(130, 43, 241, 1)",
+                borderSkipped: "bottom",
+              },
+              {
+                label: "Humidity",
+                data: [],
+                backgroundColor: humidityGradient,
+                borderWidth: 1,
+                borderColor: "rgba(0, 175, 8, 1)",
+                borderSkipped: "bottom",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            indexAxis: "y",
+            maintainAspectRatio: false,
+            scales: {
+              x: "",
+              y: "",
+              yAxes: [
+                {
+                  ticks: {
+                    fontColor: "black",
+                    fontSize: 14,
+                    fontStyle: "bold",
+                  },
+                },
+              ],
+              xAxes: [
+                {
+                  ticks: {
+                    min: 0,
+                    beginAtZero: true,
+                    fontColor: "black",
+                    fontSize: 14,
+                    fontStyle: "bold",
+                  },
+                },
+              ],
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  font: {
+                    size: 14,
+                  },
+                },
+              },
+            },
+            animation: {
+              onProgress: function () {
+                const chartInstance = this.chart;
+                const ctx = chartInstance.ctx;
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.font = "bold 15px Arial";
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  chartInstance.controller
+                    .getDatasetMeta(i)
+                    .data.forEach(function (bar, index) {
+                      const data = dataset.data[index];
+                      ctx.fillStyle = "white";
+                      ctx.fillText(data, bar._model.x - 10, bar._model.y);
+                    });
+                });
+              },
+            },
+          },
+        };
+
+        const chartInstance = new Chart(barChartCanvas, chartOptions);
+
+        // Update function
+        const fetchDataAndUpdateChart = function () {
+          const newData = {
+            temperature: {},
+            humidity: {},
+          };
+
+          fetch(url + "/obix/config/Drivers/Dashboard/trh_customer/")
+            .then((response) => response.text())
+            .then((data) => {
+              const xmlDOM = new DOMParser().parseFromString(data, "text/xml");
+              const references = xmlDOM.getElementsByTagName("ref");
+
+              // Initialize a function to process each fetch request sequentially
+              const processFetchRequest = (index) => {
+                if (index < references.length) {
+                  const reference = references[index];
+                  const folderName = reference.getAttribute("name");
+                  const displayNameExists =
+                    reference.hasAttribute("displayName");
+                  const floorName = displayNameExists
+                    ? reference.getAttribute("displayName")
+                    : folderName;
+
+                  return fetch(
+                    url +
+                      "/obix/config/Drivers/Dashboard/trh_customer/" +
+                      folderName
+                  )
+                    .then((response) => response.text())
+                    .then((data) => {
+                      const xmlDOM = new DOMParser().parseFromString(
+                        data,
+                        "text/xml"
+                      );
+                      const points = xmlDOM.getElementsByTagName("ref");
+
+                      for (let j = 0; j < points.length; j++) {
+                        const point = points[j];
+                        const pointNameFilter = point
+                          .getAttribute("display")
+                          .replace(/(^\d+)(.+$)/i, "$1");
+                        const pointValue = pointNameFilter;
+                        const pointName = point.getAttribute("name");
+
+                        newData[pointName] = newData[pointName] || {};
+                        newData[pointName][floorName] = pointValue;
+                      }
+                    })
+                    .then(() => processFetchRequest(index + 1));
+                } else {
+                  return Promise.resolve(); // Resolve the promise when all fetch requests are done
+                }
+              };
+
+              // Start processing fetch requests sequentially
+              processFetchRequest(0).then(() => {
+                // Update chart data
+                chartInstance.data.labels = Object.keys(newData.temperature);
+                chartInstance.data.datasets[0].data = Object.values(
+                  newData.temperature
+                );
+                chartInstance.data.datasets[1].data = Object.values(
+                  newData.humidity
+                );
+
+                // Set the minimum value to zero using a tick callback
+                chartInstance.options.scales.x.min = 0;
+                chartInstance.options.scales.x.beginAtZero = true;
+
+                // Update the chart
+                chartInstance.update();
+              });
+            });
+        };
+
+        // Initial fetch and update
+        fetchDataAndUpdateChart();
+
+        // Regular interval updates
+        setInterval(fetchDataAndUpdateChart, 5000);
+
+        const floorChartCanvas = document
+          .getElementById("floorChart")
+          .getContext("2d");
+
+        // Create gradients
+        const temperatureFloorGradient = floorChartCanvas.createLinearGradient(
+          0,
+          0,
+          0,
+          1000
+        );
+        temperatureFloorGradient.addColorStop(1, "rgba(2, 134, 247, 1)");
+        temperatureFloorGradient.addColorStop(0, "rgba(2, 134, 247, 1)");
+
+        const humidityFloorGradient = floorChartCanvas.createLinearGradient(
+          0,
+          0,
+          0,
+          1000
+        );
+        humidityFloorGradient.addColorStop(1, "rgba(255, 83, 61, 1)");
+        humidityFloorGradient.addColorStop(0, "rgba(255, 83, 61, 1)");
+
+        // Chart initialization
+        const floorChartData = {
+          temperature: {},
+          humidity: {},
+        };
+
+        const floorChartOptions = {
+          type: "horizontalBar",
+          data: {
+            labels: [],
+            datasets: [
+              {
+                label: "Temperature",
+                data: [],
+                backgroundColor: temperatureFloorGradient,
+                borderWidth: 1,
+                borderColor: "rgba(2, 134, 247, 1)",
+                borderSkipped: "bottom",
+              },
+              {
+                label: "Humidity",
+                data: [],
+                backgroundColor: humidityFloorGradient,
+                borderWidth: 1,
+                borderColor: "rgba(255, 83, 61, 1)",
+                borderSkipped: "bottom",
+              },
+            ],
+          },
+          options: {
+            responsive: true,
+            indexAxis: "y",
+            maintainAspectRatio: false,
+            scales: {
+              x: "",
+              y: "",
+              yAxes: [
+                {
+                  ticks: {
+                    fontColor: "black",
+                    fontSize: 14,
+                    fontStyle: "bold",
+                  },
+                },
+              ],
+              xAxes: [
+                {
+                  ticks: {
+                    min: 0,
+                    beginAtZero: true,
+                    fontColor: "black",
+                    fontSize: 14,
+                    fontStyle: "bold",
+                  },
+                },
+              ],
+            },
+            plugins: {
+              legend: {
+                labels: {
+                  font: {
+                    size: 14,
+                  },
+                },
+              },
+            },
+            animation: {
+              onProgress: function () {
+                const chartInstance = this.chart;
+                const ctx = chartInstance.ctx;
+                ctx.textAlign = "center";
+                ctx.textBaseline = "middle";
+                ctx.font = "bold 15px Arial";
+
+                this.data.datasets.forEach(function (dataset, i) {
+                  chartInstance.controller
+                    .getDatasetMeta(i)
+                    .data.forEach(function (bar, index) {
+                      const data = dataset.data[index];
+                      ctx.fillStyle = "white";
+                      ctx.fillText(data, bar._model.x - 10, bar._model.y);
+                    });
+                });
+              },
+            },
+          },
+        };
+
+        const floorChartInstance = new Chart(
+          floorChartCanvas,
+          floorChartOptions
+        );
+
+        // Update function
+        const fetchAndUpdateFloorChart = function () {
+          const newData = {
+            temperature: {},
+            humidity: {},
+          };
+
+          fetch(url + "/obix/config/Drivers/Dashboard/trh_floor/")
+            .then((response) => response.text())
+            .then((data) => {
+              const xmlDOM = new DOMParser().parseFromString(data, "text/xml");
+              const references = xmlDOM.getElementsByTagName("ref");
+
+              // Initialize a function to process each fetch request sequentially
+              const processFetchRequest = (index) => {
+                if (index < references.length) {
+                  const reference = references[index];
+                  const folderName = reference.getAttribute("name");
+                  const displayNameExists =
+                    reference.hasAttribute("displayName");
+                  const floorName = displayNameExists
+                    ? reference.getAttribute("displayName")
+                    : folderName;
+
+                  return fetch(
+                    url +
+                      "/obix/config/Drivers/Dashboard/trh_floor/" +
+                      folderName
+                  )
+                    .then((response) => response.text())
+                    .then((data) => {
+                      const xmlDOM = new DOMParser().parseFromString(
+                        data,
+                        "text/xml"
+                      );
+                      const points = xmlDOM.getElementsByTagName("ref");
+
+                      for (let j = 0; j < points.length; j++) {
+                        const point = points[j];
+                        const pointNameFilter = point
+                          .getAttribute("display")
+                          .replace(/(^\d+)(.+$)/i, "$1");
+                        const pointValue = pointNameFilter;
+                        const pointName = point.getAttribute("name");
+
+                        newData[pointName] = newData[pointName] || {};
+                        newData[pointName][floorName] = pointValue;
+                      }
+                    })
+                    .then(() => processFetchRequest(index + 1));
+                } else {
+                  return Promise.resolve(); // Resolve the promise when all fetch requests are done
+                }
+              };
+
+              // Start processing fetch requests sequentially
+              processFetchRequest(0).then(() => {
+                // Update chart data
+                floorChartInstance.data.labels = Object.keys(
+                  newData.temperature
+                );
+                floorChartInstance.data.datasets[0].data = Object.values(
+                  newData.temperature
+                );
+                floorChartInstance.data.datasets[1].data = Object.values(
+                  newData.humidity
+                );
+
+                // Set the minimum value to zero using a tick callback
+                floorChartInstance.options.scales.y.suggestedMin = 0;
+                floorChartInstance.options.scales.y.min = 0;
+                floorChartInstance.options.scales.y.beginAtZero = true;
+
+                // Update the chart
+                floorChartInstance.update();
+              });
+            });
+        };
+
+        // Initial fetch and update
+        fetchAndUpdateFloorChart();
+
+        // Regular interval updates
+        setInterval(fetchAndUpdateFloorChart, 5000);
+
+        var g = [
+            { label: "Total Non IT kW", data: 30, color: "#7c6dbc" },
+            { label: "Total IT Load kW", data: 20, color: "#0073b7" },
+          ],
+          u = $.plot("#donut-chart", g, {
+            series: {
+              pie: {
+                show: !0,
+                radius: 1,
+                innerRadius: 0,
+                label: {
+                  show: !0,
+                  radius: 2 / 3,
+                  formatter: labelFormatter,
+                  threshold: 0.1,
+                },
+              },
+            },
+            legend: { show: !1 },
+            grid: { hoverable: !0 },
+            tooltip: { show: !0, content: "%p.0%, %s" },
+          }),
+          _ = url + "/obix/config/Drivers/Dashboard/pieChart/",
+          f = function () {
+            fetch(_)
+              .then((t) => t.text())
+              .then((t) => {
+                const a = new DOMParser()
+                    .parseFromString(t, "text/xml")
+                    .getElementsByTagName("ref"),
+                  e = [];
+                for (var r = 0; r < a.length; r++) {
+                  var i = a[r]
+                      .getAttribute("display")
+                      .replace(/(^\d+)(.+$)/i, "$1"),
+                    o = parseInt(i);
+                  e.push({ label: g[r].label, data: o, color: g[r].color });
+                }
+                u.setData(e), u.setupGrid(), u.draw();
+              });
+          };
+        f(), setInterval(f, 5e3);
+      }),
+        (gradient = (barChartCanvas = $("#barChart")
+          .get(0)
+          .getContext("2d")).createLinearGradient(0, 0, 0, 400)).addColorStop(
+          1,
+          "rgba(60,223,70,1)"
+        ),
+        gradient.addColorStop(0, "rgba(60,223,70,1)"),
+        (gradient2 = barChartCanvas.createLinearGradient(
+          0,
+          0,
+          0,
+          300
+        )).addColorStop(1, "rgba(0, 157, 246, 1)"),
+        gradient2.addColorStop(0, "rgba(0, 157, 246, 1)");
+      var gradient3 = barChartCanvas.createLinearGradient(0, 0, 0, 200);
+      gradient3.addColorStop(1, "rgba(255,84,62,1)"),
+        gradient3.addColorStop(0, "rgba(255,84,62,1)");
+      var areaChartData = {
+          labels: [
+            "TX-01",
+            "TX-02",
+            "TX-03",
+            "TX-04",
+            "TX-05",
+            "TX-06",
+            "TX-07",
+            "TX-08",
+            "TX-09",
+            "TX-10",
+            "TX-11",
+            "TX-12",
+          ],
+          datasets: [
+            {
+              label: "%",
+              backgroundColor: gradient,
+              pointRadius: !1,
+              pointColor: "#3b8bba",
+              pointStrokeColor: "rgba(60,223,70,1)",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(60,223,70,1)",
+              borderColor: "rgba(60,223,70,1)",
+              borderWidth: 1,
+              borderSkipped: "bottom",
+              data: [28, 48, 40, 19, 86, 27, 90, 48, 40, 19, 86, 27],
+            },
+            {
+              label: "TX Capacity",
+              backgroundColor: gradient2,
+              pointRadius: !1,
+              pointColor: "rgba(0, 157, 246, 1)",
+              pointStrokeColor: "#c1c7d1",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(0, 157, 246, 1)",
+              borderColor: "rgba(0, 157, 246, 1)",
+              borderWidth: 1,
+              borderSkipped: "bottom",
+              data: [65, 59, 80, 81, 56, 55, 40, 40, 19, 86, 27, 90, 48],
+            },
+            {
+              label: "Actual",
+              backgroundColor: gradient3,
+              pointRadius: !1,
+              pointColor: "rgba(255,84,62,1)",
+              pointStrokeColor: "#c1c7d1",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(255,84,62,1)",
+              borderColor: "rgba(255,84,62,1)",
+              borderWidth: 1,
+              borderSkipped: "bottom",
+              data: [2, 3, 2, 4, 2, 1, 5, 2, 4, 1, 4, 2, 5],
+            },
+          ],
+        },
+        barChartData = $.extend(!0, {}, areaChartData),
+        temp0 = areaChartData.datasets[0],
+        temp1 = areaChartData.datasets[1];
+      (barChartData.datasets[0] = temp1), (barChartData.datasets[1] = temp0);
+      var barChartOptions = {
+          responsive: !0,
+          maintainAspectRatio: !1,
+          datasetFill: !1,
+          scales: {
+            x: "",
+            y: "",
+            yAxes: [
+              {
+                ticks: {
+                  fontColor: "black",
+                  fontSize: 14,
+                  fontStyle: "bold",
+                },
+              },
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  min: 0,
+                  beginAtZero: true,
+                  fontColor: "black",
+                  fontSize: 14,
+                  fontStyle: "bold",
+                },
+              },
+            ],
+          },
+          plugins: {
+            legend: {
+              labels: {
+                font: {
+                  size: 14,
+                },
+              },
+            },
+          },
+          animation: {
+            onProgress: function () {
+              const t = this.chart,
+                a = t.ctx;
+              (a.textAlign = "center"),
+                (a.textBaseline = "middle"),
+                (a.font = "bold 15px Arial"),
+                this.data.datasets.forEach(function (e, r) {
+                  t.controller.getDatasetMeta(r).data.forEach(function (t, r) {
+                    const i = e.data[r];
+                    (a.fillStyle = "black"),
+                      a.fillText(i, t._model.x - 0, t._model.y - 5);
+                  });
+                });
+            },
+          },
+        },
+        tx_capacity_chart = new Chart(barChartCanvas, {
+          type: "bar",
+          data: barChartData,
+          options: barChartOptions,
+        }),
+        tx_chart_URL = url + "/obix/config/Drivers/Dashboard/TX/";
+      (getTxData = function () {
+        const t = {};
+        fetch(tx_chart_URL)
+          .then((t) => t.text())
+          .then((a) => {
+            const e = new DOMParser()
+                .parseFromString(a, "text/xml")
+                .getElementsByTagName("ref"),
+              r = [];
+
+            const promises = [];
+
+            // Create a function to fetch data for a specific ref
+            const processFetchRequest = (index) => {
+              if (index < e.length) {
+                const ref = e[index];
+                const txName = ref.getAttribute("name");
+                const txDisplayName = ref.hasAttribute("displayName")
+                  ? ref.getAttribute("displayName")
+                  : txName;
+
+                r.push(txDisplayName);
+
+                const txDataURL =
+                  url + "/obix/config/Drivers/Dashboard/TX/" + txName;
+
+                // Create a fetch promise for each data request
+                return fetch(txDataURL)
+                  .then((response) => response.text())
+                  .then((data) => {
+                    const xmlDOM = new DOMParser().parseFromString(
+                      data,
+                      "text/xml"
+                    );
+                    const points = xmlDOM.getElementsByTagName("ref");
+
+                    for (let j = 0; j < points.length; j++) {
+                      const point = points[j];
+                      const pointNameFilter = point
+                        .getAttribute("display")
+                        .replace(/(^\d+)(.+$)/i, "$1");
+                      const pointValue = pointNameFilter;
+                      const pointName = point.getAttribute("name");
+
+                      t[pointName] = t[pointName] || {};
+                      t[pointName][txDisplayName] = pointValue;
+                    }
+                  })
+                  .then(() => processFetchRequest(index + 1));
+              } else {
+                return Promise.resolve(); // Resolve the promise when all fetch requests are done
+              }
+            };
+
+            // Start processing fetch requests sequentially
+            processFetchRequest(0).then(() => {
+              // Update the chart after all fetch requests are completed
+              tx_capacity_chart.data.labels = Object.keys(t.tx_capacity);
+              tx_capacity_chart.data.datasets[0].data = Object.values(
+                t.tx_capacity
+              );
+              tx_capacity_chart.data.datasets[1].data = Object.values(
+                t.percentage
+              );
+              tx_capacity_chart.data.datasets[2].data = Object.values(t.actual);
+              tx_capacity_chart.options.scales.yAxes[0].ticks.suggestedMin = 0;
+              tx_capacity_chart.options.scales.yAxes[0].ticks.min = 0;
+              tx_capacity_chart.options.scales.yAxes[0].ticks.beginAtZero = true;
+              tx_capacity_chart.update();
+            });
+          });
+      })(),
+        setInterval(getTxData, 5e3);
+      const lineChartCanvas = $("#lineChart").get(0).getContext("2d"),
+        lineChartDatas = {
+          labels: [],
+          datasets: [
+            {
+              label: "Temp",
+              backgroundColor: "rgba(60,141,188,0.9)",
+              borderColor: "rgba(60,141,188,0.8)",
+              pointRadius: 3,
+              pointColor: "#3b8bba",
+              pointStrokeColor: "rgba(60,141,188,1)",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(60,141,188,1)",
+              data: [],
+            },
+            {
+              label: "RH",
+              backgroundColor: "rgba(64,15,167, 1)",
+              borderColor: "rgba(64,15,167, 1)",
+              pointRadius: 3,
+              pointColor: "rgba(64,15,167, 1)",
+              pointStrokeColor: "#400f7f",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(64,15,167,1)",
+              data: [],
+            },
+          ],
+        },
+        areaChartOptions = {
+          maintainAspectRatio: !1,
+          responsive: !0,
+          legend: { display: !0 },
+          scales: {
+            x: "",
+            y: "",
+            yAxes: [
+              {
+                ticks: {
+                  fontColor: "black",
+                  fontSize: 14,
+                  fontStyle: "bold",
+                  min: 0,
+                  beginAtZero: true,
+                },
+              },
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  fontColor: "black",
+                  fontSize: 14,
+                  fontStyle: "bold",
+                },
+              },
+            ],
+          },
+        },
+        lineChartOptions = $.extend(!0, {}, areaChartOptions),
+        lineChartData = $.extend(!0, {}, lineChartDatas);
+      (lineChartData.datasets[0].fill = !1),
+        (lineChartData.datasets[1].fill = !1),
+        (lineChartOptions.datasetFill = !1),
+        (lineChartOptions.tooltips = { mode: "index", intersect: !1 });
+      const lineChart = new Chart(lineChartCanvas, {
+          type: "line",
+          data: lineChartData,
+          options: lineChartOptions,
+        }),
+        updateLineChart = (t) => {
+          (lineChart.data.labels = Object.keys(t.temperature)),
+            (lineChart.data.datasets[0].data = Object.values(t.temperature)),
+            (lineChart.data.datasets[1].data = Object.values(t.humidity)),
+            lineChart.update();
+        },
+        trh_chart_URL = url + "/obix/config/Drivers/Dashboard/lineChart/";
+      const getcustomerTrhData = async () => {
+        const t = {};
+        try {
+          const response = await fetch(trh_chart_URL);
+          const text = await response.text();
+          const e = new DOMParser()
+            .parseFromString(text, "text/xml")
+            .getElementsByTagName("ref");
+          const r = [];
+
+          for (let index = 0; index < e.length; index++) {
+            const i = e[index];
+            const o = i.getAttribute("name");
+            const s = i.hasAttribute("displayName");
+            r[index] = s ? i.getAttribute("displayName") : o;
+            const l = url + "/obix/config/Drivers/Dashboard/lineChart/" + o;
+
+            await new Promise((resolve) => setTimeout(resolve, 500)); // Add a delay between fetch requests
+
+            const chartResponse = await fetch(l);
+            const chartText = await chartResponse.text();
+            const chartData = new DOMParser()
+              .parseFromString(chartText, "text/xml")
+              .getElementsByTagName("ref");
+            const chartValues = [];
+            const chartLabels = [];
+
+            for (let e = 0; e < chartData.length; e++) {
+              const chartItem = chartData[e];
+              const chartDisplay = chartItem
+                .getAttribute("display")
+                .replace(/(^\d+)(.+$)/i, "$1");
+              chartValues[e] = chartDisplay;
+              chartLabels[e] = chartItem.getAttribute("name");
+              const chartDisplayValue = chartItem.getAttribute("display");
+              if (4 !== chartDisplayValue.trim().split(/\s+/).length)
+                chartDisplayValue.split(" ")[1];
+              const chartLabel = chartLabels[e];
+              t[chartLabel] = t[chartLabel] || {};
+              const chartHeader = r[index];
+              t[chartLabel][chartHeader] = chartValues[e];
+            }
+          }
+
+          updateLineChart(t);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+      var gradient2;
+      getcustomerTrhData(),
+        setInterval(getcustomerTrhData, 5e3),
+        (gradient = (barChartCanvas = $("#barChart2")
+          .get(0)
+          .getContext("2d")).createLinearGradient(0, 0, 0, 200)).addColorStop(
+          1,
+          "rgba(243, 107, 92, 1)"
+        ),
+        gradient.addColorStop(0, "rgba(243, 107, 92, 1)"),
+        (gradient2 = barChartCanvas.createLinearGradient(
+          0,
+          0,
+          0,
+          200
+        )).addColorStop(1, "rgba(64, 15, 134, 1)"),
+        gradient2.addColorStop(0, "rgba(64, 15, 134, 1)"),
+        (gradient3 = barChartCanvas.createLinearGradient(
+          0,
+          0,
+          0,
+          200
+        )).addColorStop(1, "rgba(68, 123, 179, 1)"),
+        gradient3.addColorStop(0, "rgba(68, 123, 179, 1)");
+      var barChartDatas = {
+        labels: [
+          "FLOOR 1",
+          "FLOOR 2",
+          "FLOOR 3",
+          "FLOOR 4",
+          "FLOOR 5",
+          "FLOOR 6",
+        ],
+        datasets: [
+          {
+            label: "B Source",
+            backgroundColor: gradient,
+            pointRadius: !1,
+            pointColor: "rgba(75, 192, 192, 1)",
+            pointStrokeColor: "#c1c7d1",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(75, 192, 192,1)",
+            borderColor: "rgba(243, 107, 92, 1)",
+            borderWidth: 1,
+            borderSkipped: "bottom",
+            data: [683, 452, 332, 94, 12, 8],
+          },
+          {
+            label: "A Source",
+            backgroundColor: gradient2,
+            borderColor: "rgba(64, 15, 134, 1)",
+            pointRadius: !1,
+            pointColor: "#3b8bba",
+            pointStrokeColor: "rgba(60,141,188,1)",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(60,141,188,1)",
+            borderWidth: 1,
+            borderSkipped: "bottom",
+            data: [604, 451, 320, 96, 11, 9],
+          },
+          {
+            label: "C Source",
+            backgroundColor: gradient3,
+            pointRadius: !1,
+            pointColor: "rgba(166, 192, 80,1)",
+            pointStrokeColor: "rgba(68, 123, 179,1)",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(166, 192, 80,1)",
+            borderColor: "rgba(68, 123, 179, 1)",
+            borderWidth: 1,
+            borderSkipped: "bottom",
+            data: [300, 652, 372, 194, 182, 7],
+          },
+        ],
+      };
+      (barChartData = $.extend(!0, {}, barChartDatas)),
+        (temp0 = barChartDatas.datasets[0]),
+        (temp1 = barChartDatas.datasets[1]);
+      temp2 = barChartDatas.datasets[2];
+      (barChartData.datasets[0] = temp2),
+        (barChartData.datasets[0] = temp1),
+        (barChartData.datasets[1] = temp0);
+      barChartOptions = {
+        responsive: true,
+        indexAxis: "y",
+        maintainAspectRatio: false,
+        scales: {
+          x: "",
+          y: "",
+          yAxes: [
+            {
+              ticks: {
+                fontColor: "black",
+                fontSize: 14,
+                fontStyle: "bold",
+              },
+            },
+          ],
+          xAxes: [
+            {
+              ticks: {
+                min: 0,
+                beginAtZero: true,
+                fontColor: "black",
+                fontSize: 14,
+                fontStyle: "bold",
+              },
+            },
+          ],
+        },
+        animation: {
+          onProgress: function () {
+            const t = this.chart,
+              a = t.ctx;
+            (a.textAlign = "center"),
+              (a.textBaseline = "middle"),
+              (a.font = "bold 15px Arial"),
+              this.data.datasets.forEach(function (e, r) {
+                t.controller.getDatasetMeta(r).data.forEach(function (t, r) {
+                  const i = e.data[r];
+                  (a.fillStyle = "black"),
+                    a.fillText(i, t._model.x - 0, t._model.y - 5);
+                });
+              });
+          },
+        },
+      };
+      var getTxData,
+        pdu_chart = new Chart(barChartCanvas, {
+          type: "bar",
+          data: barChartData,
+          options: barChartOptions,
+        }),
+        pdu_chart_URL = url + "/obix/config/Drivers/Dashboard/PDU/";
+      (getTxData = function () {
+        const t = {};
+        fetch(pdu_chart_URL)
+          .then((t) => t.text())
+          .then((a) => {
+            const e = new DOMParser()
+              .parseFromString(a, "text/xml")
+              .getElementsByTagName("ref");
+            const r = [];
+
+            // Initialize a function to process each fetch request sequentially
+            const processFetchRequest = (index) => {
+              if (index < e.length) {
+                const ref = e[index];
+                const txName = ref.getAttribute("name");
+                const txDisplayName = ref.hasAttribute("displayName")
+                  ? ref.getAttribute("displayName")
+                  : txName;
+
+                r.push(txDisplayName);
+                const txDataURL =
+                  url + "/obix/config/Drivers/Dashboard/PDU/" + txName;
+
+                return fetch(txDataURL)
+                  .then((response) => response.text())
+                  .then((data) => {
+                    const xmlDOM = new DOMParser().parseFromString(
+                      data,
+                      "text/xml"
+                    );
+                    const points = xmlDOM.getElementsByTagName("ref");
+
+                    for (let j = 0; j < points.length; j++) {
+                      const point = points[j];
+                      const pointNameFilter = point
+                        .getAttribute("display")
+                        .replace(/(^\d+)(.+$)/i, "$1");
+                      const pointValue = pointNameFilter;
+                      const pointName = point.getAttribute("name");
+
+                      t[pointName] = t[pointName] || {};
+                      t[pointName][txDisplayName] = pointValue;
+                    }
+                  })
+                  .then(() => processFetchRequest(index + 1));
+              } else {
+                return Promise.resolve(); // Resolve the promise when all fetch requests are done
+              }
+            };
+
+            // Start processing fetch requests sequentially
+            processFetchRequest(0).then(() => {
+              pdu_chart.data.labels = Object.keys(t.a_source);
+              pdu_chart.data.datasets[0].data = Object.values(t.a_source);
+              pdu_chart.data.datasets[1].data = Object.values(t.b_source);
+              pdu_chart.data.datasets[2].data = Object.values(t.c_source);
+              pdu_chart.options.scales.yAxes[0].ticks.suggestedMin = 0;
+              pdu_chart.options.scales.yAxes[0].ticks.min = 0;
+              pdu_chart.options.scales.yAxes[0].ticks.beginAtZero = true;
+              pdu_chart.update();
+            });
+          });
+      })(),
+        setInterval(getTxData, 5e3),
+        (gradient = barChartCanvas.createLinearGradient(
+          0,
+          0,
+          0,
+          400
+        )).addColorStop(0, "rgba(0, 168, 100, 1)"),
+        gradient.addColorStop(1, "rgba(0, 168, 100, 1)");
+      (gradient2 = barChartCanvas.createLinearGradient(
+        0,
+        0,
+        0,
+        200
+      )).addColorStop(1, "rgba(64, 15, 134, 1)"),
+        gradient2.addColorStop(0, "rgba(64, 15, 134, 1)");
+      var barChartDatas3 = {
+          labels: [
+            "FLOOR 1",
+            "FLOOR 2",
+            "FLOOR 3",
+            "FLOOR 4",
+            "FLOOR 5",
+            "FLOOR 6",
+          ],
+          datasets: [
+            {
+              label: "IT Load",
+              pointRadius: !1,
+              pointColor: "rgba(0, 168, 100, 1)",
+              pointStrokeColor: "#c1c7d1",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(0, 168, 100, 1)",
+              backgroundColor: gradient,
+              borderColor: "rgba(0, 168, 100, 1)",
+              borderWidth: 1,
+              borderSkipped: "bottom",
+              data: [535, 531, 530, 520, 518, 510],
+            },
+            {
+              label: "Non IT Load",
+              backgroundColor: gradient2,
+              borderColor: "rgba(64, 15, 134, 1)",
+              pointRadius: !1,
+              pointColor: "#3b8bba",
+              pointStrokeColor: "rgba(64, 15, 134, 1)",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(64, 15, 134, 1)",
+              borderWidth: 1,
+              borderSkipped: "bottom",
+              data: [604, 451, 320, 96, 11, 9],
+            },
+          ],
+        },
+        barChartCanvas = document.getElementById("barChart3").getContext("2d"),
+        ups_chart =
+          ((barChartData = $.extend(!0, {}, barChartDatas3)),
+          (barChartOptions = {
+            responsive: !0,
+            maintainAspectRatio: !1,
+            datasetFill: !1,
+            legend: { display: !0 },
+            scales: {
+              x: "",
+              y: "",
+              yAxes: [
+                {
+                  ticks: {
+                    fontColor: "black",
+                    fontSize: 14,
+                    fontStyle: "bold",
+                  },
+                },
+              ],
+              xAxes: [
+                {
+                  ticks: {
+                    min: 0,
+                    beginAtZero: true,
+                    fontColor: "black",
+                    fontSize: 14,
+                    fontStyle: "bold",
+                  },
+                },
+              ],
+            },
+            animation: {
+              onProgress: function () {
+                const t = this.chart,
+                  a = t.ctx;
+                (a.textAlign = "center"),
+                  (a.textBaseline = "middle"),
+                  (a.font = "bold 15px Arial"),
+                  this.data.datasets.forEach(function (e, r) {
+                    t.controller
+                      .getDatasetMeta(r)
+                      .data.forEach(function (t, r) {
+                        const i = e.data[r];
+                        (a.fillStyle = "black"),
+                          a.fillText(i, t._model.x - 0, t._model.y - 5);
+                      });
+                  });
+              },
+            },
+          }),
+          new Chart(barChartCanvas, {
+            type: "bar",
+            data: barChartData,
+            options: barChartOptions,
+          })),
+        ups_chart_URL = url + "/obix/config/Drivers/Dashboard/UPS/";
+      (getUPSData = function () {
+        const t = {};
+        fetch(ups_chart_URL)
+          .then((t) => t.text())
+          .then((a) => {
+            const e = new DOMParser()
+              .parseFromString(a, "text/xml")
+              .getElementsByTagName("ref");
+            const r = [];
+
+            // Initialize a function to process each fetch request sequentially
+            const processFetchRequest = (index) => {
+              if (index < e.length) {
+                const ref = e[index];
+                const txName = ref.getAttribute("name");
+                const txDisplayName = ref.hasAttribute("displayName")
+                  ? ref.getAttribute("displayName")
+                  : txName;
+
+                r.push(txDisplayName);
+                const txDataURL =
+                  url + "/obix/config/Drivers/Dashboard/UPS/" + txName;
+
+                return fetch(txDataURL)
+                  .then((response) => response.text())
+                  .then((data) => {
+                    const xmlDOM = new DOMParser().parseFromString(
+                      data,
+                      "text/xml"
+                    );
+                    const points = xmlDOM.getElementsByTagName("ref");
+
+                    for (let j = 0; j < points.length; j++) {
+                      const point = points[j];
+                      const pointNameFilter = point
+                        .getAttribute("display")
+                        .replace(/(^\d+)(.+$)/i, "$1");
+                      const pointValue = pointNameFilter;
+                      const pointName = point.getAttribute("name");
+
+                      t[pointName] = t[pointName] || {};
+                      t[pointName][txDisplayName] = pointValue;
+                    }
+                  })
+                  .then(() => processFetchRequest(index + 1));
+              } else {
+                return Promise.resolve(); // Resolve the promise when all fetch requests are done
+              }
+            };
+
+            // Start processing fetch requests sequentially
+            processFetchRequest(0).then(() => {
+              ups_chart.data.labels = Object.keys(t.it_load);
+              ups_chart.data.datasets[0].data = Object.values(t.it_load);
+              ups_chart.data.datasets[1].data = Object.values(t.non_it_load);
+              ups_chart.options.scales.yAxes[0].ticks.suggestedMin = 0;
+              ups_chart.options.scales.yAxes[0].ticks.min = 0;
+              ups_chart.options.scales.yAxes[0].ticks.beginAtZero = true;
+              ups_chart.update();
+            });
+          });
+      })(),
+        setInterval(getUPSData, 5e3);
+      var gradient = (barChartCanvas = $("#barChart4")
+        .get(0)
+        .getContext("2d")).createLinearGradient(0, 0, 0, 200);
+      gradient.addColorStop(1, "rgba(51, 126, 131, 1)");
+      gradient.addColorStop(0, "rgba(51, 126, 131, 1)");
+
+      var barChartDatas4 = {
+        labels: [
+          "FLOOR 1",
+          "FLOOR 2",
+          "FLOOR 3",
+          "FLOOR 4",
+          "FLOOR 5",
+          "FLOOR 6",
+          "FLOOR G",
+        ],
+        datasets: [
+          {
+            label: "Load in KW",
+            backgroundColor: gradient,
+            pointRadius: !1,
+            pointColor: "rgba(210, 214, 222, 1)",
+            pointStrokeColor: "#c1c7d1",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            borderColor: "rgba(75, 192, 192, 1)",
+            borderWidth: 1,
+            borderSkipped: "bottom",
+            data: [1235, 2131, 1230, 1220, 1218, 1210, 2125],
+          },
+          {
+            label: "Limit value",
+            backgroundColor: "rgba(79, 120, 181, 0.5)", // light blue color
+            borderColor: "rgba(79, 120, 181, 1)",
+            borderWidth: 1,
+            borderSkipped: "bottom",
+            data: [2250, 2250, 2250, 2250, 2250, 2250, 2250],
+          },
+        ],
+      };
+
+      var barChartOptions = {
+        responsive: !0,
+        maintainAspectRatio: !1,
+        datasetFill: !1,
+        legend: {
+          display: !0,
+          labels: {
+            fontColor: "black",
+            fontSize: 14,
+            fontStyle: "bold",
+          },
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                fontColor: "black",
+                fontSize: 14,
+                fontStyle: "bold",
+                beginAtZero: true,
+              },
+            },
+          ],
+          xAxes: [
+            {
+              ticks: {
+                min: 0,
+                beginAtZero: true,
+                fontColor: "black",
+                fontSize: 14,
+                fontStyle: "bold",
+              },
+            },
+          ],
+        },
+        layout: { padding: { left: 0, right: 0, top: 20, bottom: 0 } },
+        animation: {
+          onProgress: function () {
+            const t = this.chart,
+              a = t.ctx;
+            a.textAlign = "center";
+            a.textBaseline = "middle";
+            a.font = "bold 15px Arial";
+            this.data.datasets.forEach(function (e, r) {
+              t.controller.getDatasetMeta(r).data.forEach(function (t, r) {
+                const i = e.data[r];
+                a.fillStyle = "black";
+                a.fillText(i, t._model.x - 0, t._model.y - 5);
+              });
+            });
+          },
+        },
+      };
+
+      var coolingLoadChart = new Chart(barChartCanvas, {
+        type: "bar",
+        data: barChartDatas4,
+        options: barChartOptions,
+      });
+
+      var cooling_chart_URL =
+        url + "/obix/config/Drivers/Dashboard/coolingLoad/";
+
+      function getCoolingData() {
+        fetch(cooling_chart_URL)
+          .then((t) => t.text())
+          .then((t) => {
+            const a = new DOMParser()
+                .parseFromString(t, "text/xml")
+                .getElementsByTagName("ref"),
+              e = [],
+              r = [];
+            for (var i = 0; i < a.length; i++) {
+              var o = a[i],
+                s = o.getAttribute("display").replace(/(^\d+)(.+$)/i, "$1");
+              console.log(o);
+              e[i] = s;
+              var displayName = o.getAttribute("displayName");
+              if (displayName) {
+                r[i] = displayName;
+              } else {
+                r[i] = o.getAttribute("name");
+              }
+              var l = o.getAttribute("display");
+              if (4 !== l.trim().split(/\s+/).length) l.split(" ")[1];
+            }
+            e.map(function (t) {
+              return parseInt(t);
+            });
+            coolingLoadChart.data.labels = r;
+            coolingLoadChart.data.datasets[0].data = e;
+            coolingLoadChart.data.datasets[1].data = Array(e.length).fill(2250); // Set the limit values
+            coolingLoadChart.options.scales.yAxes[0].ticks.suggestedMin = 0;
+            coolingLoadChart.options.scales.yAxes[0].ticks.min = 0;
+            coolingLoadChart.options.scales.yAxes[0].ticks.beginAtZero = !0;
+            coolingLoadChart.update();
+          });
+      }
+
+      getCoolingData();
+      setInterval(getCoolingData, 5000),
+        (gradient = (barChartCanvas = $("#barChart5")
+          .get(0)
+          .getContext("2d")).createLinearGradient(0, 0, 0, 200)).addColorStop(
+          1,
+          "rgba(255, 84, 61, 1)"
+        ),
+        gradient.addColorStop(0, "rgba(255, 84, 61, 1)");
+      (barChartDatas4 = {
+        labels: [
+          "FLOOR 1",
+          "FLOOR 2",
+          "FLOOR 3",
+          "FLOOR 4",
+          "FLOOR 5",
+          "FLOOR 6",
+          "FLOOR G",
+        ],
+        datasets: [
+          {
+            label: "#Load in KW",
+            backgroundColor: gradient,
+            pointRadius: !1,
+            pointColor: "rgba(255, 84, 61, 1)",
+            pointStrokeColor: "#c1c7d1",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(255, 84, 61, 1)",
+            borderColor: "rgba(255, 84, 61, 1)",
+            borderWidth: 1,
+            borderSkipped: "bottom",
+            data: [535, 431, 530, 420, 518, 410, 455],
+          },
+        ],
+      }),
+        (barChartData = $.extend(!0, {}, barChartDatas4)),
+        (barChartOptions = {
+          responsive: !0,
+          maintainAspectRatio: !1,
+          datasetFill: !1,
+          legend: { display: !1 },
+          scales: {
+            x: "",
+            y: "",
+            yAxes: [
+              {
+                ticks: {
+                  fontColor: "black",
+                  fontSize: 14,
+                  fontStyle: "bold",
+                },
+              },
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  min: 0,
+                  beginAtZero: true,
+                  fontColor: "black",
+                  fontSize: 14,
+                  fontStyle: "bold",
+                },
+              },
+            ],
+          },
+          animation: {
+            onProgress: function () {
+              const t = this.chart,
+                a = t.ctx;
+              (a.textAlign = "center"),
+                (a.textBaseline = "middle"),
+                (a.font = "bold 15px Arial"),
+                this.data.datasets.forEach(function (e, r) {
+                  t.controller.getDatasetMeta(r).data.forEach(function (t, r) {
+                    const i = e.data[r];
+                    (a.fillStyle = "black"),
+                      a.fillText(i, t._model.x - 0, t._model.y - 5);
+                  });
+                });
+            },
+          },
+        });
+      var gradient,
+        hvac_chart = new Chart(barChartCanvas, {
+          type: "bar",
+          data: barChartData,
+          options: barChartOptions,
+        }),
+        hvac_chart_URL = url + "/obix/config/Drivers/Dashboard/hvacLoad/",
+        getHvacData = function () {
+          fetch(hvac_chart_URL)
+            .then((t) => t.text())
+            .then((t) => {
+              const a = new DOMParser()
+                  .parseFromString(t, "text/xml")
+                  .getElementsByTagName("ref"),
+                e = [],
+                r = [];
+              for (var i = 0; i < a.length; i++) {
+                var o = a[i],
+                  s = o.getAttribute("display").replace(/(^\d+)(.+$)/i, "$1");
+                console.log(o);
+                e[i] = s;
+                var displayName = o.getAttribute("displayName");
+                if (displayName) {
+                  r[i] = displayName;
+                } else {
+                  r[i] = o.getAttribute("name");
+                }
+                var l = o.getAttribute("display");
+                if (4 !== l.trim().split(/\s+/).length) l.split(" ")[1];
+              }
+              e.map(function (t) {
+                return parseInt(t);
+              });
+              (hvac_chart.data.labels = r),
+                (hvac_chart.data.datasets[0].data = e),
+                (hvac_chart.options.scales.yAxes[0].ticks.suggestedMin = 0),
+                (hvac_chart.options.scales.yAxes[0].ticks.min = 0),
+                (hvac_chart.options.scales.yAxes[0].ticks.beginAtZero = !0),
+                hvac_chart.update();
+            });
+        };
+      getHvacData(),
+        setInterval(getHvacData, 5e3),
+        (gradient = (barChartCanvas = $("#barChart6")
+          .get(0)
+          .getContext("2d")).createLinearGradient(0, 0, 0, 200)).addColorStop(
+          1,
+          "rgba(3, 134, 248, 1)"
+        ),
+        gradient.addColorStop(0, "rgba(3, 134, 248, 1)");
+      (barChartDatas4 = {
+        labels: [
+          "Chiller 1",
+          "Chiller 2",
+          "Chiller 3",
+          "Chiller 4",
+          "Chiller 5",
+          "Chiller 6",
+          "Chiller G",
+        ],
+        datasets: [
+          {
+            label: "#Load in KW",
+            backgroundColor: gradient,
+            pointRadius: !1,
+            pointColor: "rgba(3, 134, 248, 1)",
+            pointStrokeColor: "#c1c7d1",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(3, 134, 248, 1)",
+            borderColor: "rgba(3, 134, 248, 1)",
+            borderWidth: 1,
+            borderSkipped: "bottom",
+            data: [35, 31, 30, 20, 18, 10, 5],
+          },
+        ],
+      }),
+        (barChartData = $.extend(!0, {}, barChartDatas4)),
+        (barChartOptions = {
+          responsive: !0,
+          maintainAspectRatio: !1,
+          datasetFill: !1,
+          legend: { display: !1 },
+          scales: {
+            x: "",
+            y: "",
+            yAxes: [
+              {
+                ticks: {
+                  fontColor: "black",
+                  fontSize: 14,
+                  fontStyle: "bold",
+                },
+              },
+            ],
+            xAxes: [
+              {
+                ticks: {
+                  min: 0,
+                  beginAtZero: true,
+                  fontColor: "black",
+                  fontSize: 14,
+                  fontStyle: "bold",
+                },
+              },
+            ],
+          },
+          layout: { padding: { left: 0, right: 0, top: 20, bottom: 0 } },
+          animation: {
+            onProgress: function () {
+              const t = this.chart,
+                a = t.ctx;
+              (a.textAlign = "center"),
+                (a.textBaseline = "middle"),
+                (a.font = "bold 15px Arial"),
+                this.data.datasets.forEach(function (e, r) {
+                  t.controller.getDatasetMeta(r).data.forEach(function (t, r) {
+                    const i = e.data[r];
+                    (a.fillStyle = "black"),
+                      a.fillText(i, t._model.x - 0, t._model.y - 5);
+                  });
+                });
+            },
+          },
+        });
+      var temp_val,
+        temp_facet,
+        hum_val,
+        hum_facet,
+        pue_val,
+        pue_facet,
+        pf_val,
+        pf_facet,
+        ikW_val,
+        ikW_facet,
+        phase_r_val,
+        phase_r_facet,
+        phase_y_val,
+        phase_y_facet,
+        phase_b_val,
+        phase_b_facet,
+        phase_r1_val,
+        phase_r1_facet,
+        phase_y1_val,
+        phase_y1_facet,
+        phase_b1_val,
+        phase_b1_facet,
+        srv_a_val,
+        srv_a_facet,
+        srv_b_val,
+        srv_b_facet,
+        eb_power_val,
+        eb_power_facet,
+        fuel_stk_val,
+        fuel_stk_facet,
+        fuel_bkp_hr_val,
+        fuel_bkp_hr_facet,
+        chillerChart = new Chart(barChartCanvas, {
+          type: "bar",
+          data: barChartData,
+          options: barChartOptions,
+        }),
+        chiller_chart_URL = url + "/obix/config/Drivers/Dashboard/chillerLoad/",
+        getChillerData = function () {
+          fetch(chiller_chart_URL)
+            .then((t) => t.text())
+            .then((t) => {
+              const a = new DOMParser()
+                  .parseFromString(t, "text/xml")
+                  .getElementsByTagName("ref"),
+                e = [],
+                r = [];
+              for (var i = 0; i < a.length; i++) {
+                var o = a[i],
+                  s = o.getAttribute("display").replace(/(^\d+)(.+$)/i, "$1");
+                console.log(o);
+                e[i] = s;
+                var displayName = o.getAttribute("displayName");
+                if (displayName) {
+                  r[i] = displayName;
+                } else {
+                  r[i] = o.getAttribute("name");
+                }
+                var l = o.getAttribute("display");
+                if (4 !== l.trim().split(/\s+/).length) l.split(" ")[1];
+              }
+              e.map(function (t) {
+                return parseInt(t);
+              });
+              (chillerChart.data.labels = r),
+                (chillerChart.data.datasets[0].data = e),
+                (chillerChart.options.scales.yAxes[0].ticks.suggestedMin = 0),
+                (chillerChart.options.scales.yAxes[0].ticks.min = 0),
+                (chillerChart.options.scales.yAxes[0].ticks.beginAtZero = !0),
+                chillerChart.update();
+            });
+        };
+      getChillerData(), setInterval(getChillerData, 5e3);
+      var temperature =
+          url + "/obix/config/Drivers/Dashboard/" + temp + "/out/",
+        humidity = url + "/obix/config/Drivers/Dashboard/" + hum + "/out/",
+        pue = url + "/obix/config/Drivers/Dashboard/" + pue + "/out/",
+        pf = url + "/obix/config/Drivers/Dashboard/" + pf + "/out/",
+        ikW = url + "/obix/config/Drivers/Dashboard/" + ikW + "/out/",
+        phase_r =
+          url + "/obix/config/Drivers/Dashboard/voltage/" + phase_r + "/out/",
+        phase_y =
+          url + "/obix/config/Drivers/Dashboard/voltage/" + phase_y + "/out/",
+        phase_b =
+          url + "/obix/config/Drivers/Dashboard/voltage/" + phase_b + "/out/",
+        phase_r1 =
+          url + "/obix/config/Drivers/Dashboard/voltage/" + phase_r1 + "/out/",
+        phase_y1 =
+          url + "/obix/config/Drivers/Dashboard/voltage/" + phase_y1 + "/out/",
+        phase_b1 =
+          url + "/obix/config/Drivers/Dashboard/voltage/" + phase_b1 + "/out/",
+        srv_a =
+          url + "/obix/config/Drivers/Dashboard/SRV_health/" + srv_a + "/out/",
+        srv_b =
+          url + "/obix/config/Drivers/Dashboard/SRV_health/" + srv_b + "/out/",
+        eb_power_sts =
+          url +
+          "/obix/config/Drivers/Dashboard/EB_power_sts/" +
+          eb_Sts +
+          "/out/",
+        fuel_stk_sts =
+          url +
+          "/obix/config/Drivers/Dashboard/fuelSts/" +
+          fuel_stock_sts +
+          "/out/",
+        fuel_bkp_hrs =
+          url +
+          "/obix/config/Drivers/Dashboard/fuelSts/" +
+          fuel_bkp_hr +
+          "/out/";
+
+      setInterval(function () {
+        Promise.all([
+          fetch(temperature).then((t) => t.text()),
+          fetch(humidity).then((t) => t.text()),
+          fetch(pue).then((t) => t.text()),
+          fetch(pf).then((t) => t.text()),
+          fetch(ikW).then((t) => t.text()),
+          fetch(phase_r).then((t) => t.text()),
+          fetch(phase_y).then((t) => t.text()),
+          fetch(phase_b).then((t) => t.text()),
+          fetch(phase_r1).then((t) => t.text()),
+          fetch(phase_y1).then((t) => t.text()),
+          fetch(phase_b1).then((t) => t.text()),
+          fetch(srv_a).then((t) => t.text()),
+          fetch(srv_b).then((t) => t.text()),
+          fetch(eb_power_sts).then((t) => t.text()),
+          fetch(fuel_stk_sts).then((t) => t.text()),
+          fetch(fuel_bkp_hrs).then((t) => t.text()),
+        ]).then((t) => {
+          for (var a = 0; a < t.length; a++) {
+            const o = new DOMParser().parseFromString(t[a], "text/xml"),
+              s = o.getElementsByTagName("real"),
+              l = o.getElementsByTagName("bool");
+            if (0 !== s.length)
+              for (var e = 0; e < s.length; e++) {
+                var r = s[e];
+                if (0 == a) {
+                  temp_val = r.getAttribute("val");
+                  temp_facet = (temp_facet = (temp_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  temp_val = Math.round(100 * temp_val) / 100;
+                } else if (1 == a) {
+                  hum_val = r.getAttribute("val");
+                  hum_facet = (hum_facet = (hum_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  hum_val = Math.round(100 * hum_val) / 100;
+                } else if (2 == a) {
+                  pue_val = r.getAttribute("val");
+                  pue_facet = (pue_facet = (pue_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  pue_val = Math.round(100 * pue_val) / 100;
+                } else if (3 == a) {
+                  pf_val = r.getAttribute("val");
+                  pf_facet = (pf_facet = (pf_facet = r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  pf_val = Math.round(100 * pf_val) / 100;
+                } else if (4 == a) {
+                  ikW_val = r.getAttribute("val");
+                  ikW_facet = (ikW_facet = (ikW_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  ikW_val = Math.round(100 * ikW_val) / 100;
+                } else if (5 == a) {
+                  phase_r_val = r.getAttribute("val");
+                  phase_r_facet = (phase_r_facet = (phase_r_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  phase_r_val = Math.round(100 * phase_r_val) / 100;
+                } else if (6 == a) {
+                  phase_y_val = r.getAttribute("val");
+                  phase_y_facet = (phase_y_facet = (phase_y_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  phase_y_val = Math.round(100 * phase_y_val) / 100;
+                } else if (7 == a) {
+                  phase_b_val = r.getAttribute("val");
+                  phase_b_facet = (phase_b_facet = (phase_b_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  phase_b_val = Math.round(100 * phase_b_val) / 100;
+                } else if (8 == a) {
+                  phase_r1_val = r.getAttribute("val");
+                  phase_r1_facet = (phase_r1_facet = (phase_r1_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  phase_r1_val = Math.round(100 * phase_r1_val) / 100;
+                } else if (9 == a) {
+                  phase_y1_val = r.getAttribute("val");
+                  phase_y1_facet = (phase_y1_facet = (phase_y1_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  phase_y1_val = Math.round(100 * phase_y1_val) / 100;
+                } else if (10 == a) {
+                  phase_b1_val = r.getAttribute("val");
+                  phase_b1_facet = (phase_b1_facet = (phase_b1_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  phase_b1_val = Math.round(100 * phase_b1_val) / 100;
+                } else if (11 == a) {
+                  fuel_stk_val = r.getAttribute("val");
+                  fuel_stk_facet = (fuel_stk_facet = (fuel_stk_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  fuel_stk_val = Math.round(100 * fuel_stk_val) / 100;
+                } else if (12 == a) {
+                  fuel_bkp_hr_val = r.getAttribute("val");
+                  fuel_bkp_hr_facet = (fuel_bkp_hr_facet = (fuel_bkp_hr_facet =
+                    r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" "))
+                    .split(" ")
+                    .slice(1)
+                    .join(" ");
+                  fuel_bkp_hr_val = Math.round(100 * fuel_bkp_hr_val) / 100;
+                }
+              }
+            else if (0 !== l.length)
+              for (var i = 0; i < l.length; i++) {
+                r = l[i];
+                if (8 == a) {
+                  srv_a_val = r.getAttribute("val");
+                  srv_a_facet = (srv_a_facet = r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" ");
+                } else if (9 == a) {
+                  srv_b_val = r.getAttribute("val");
+                  srv_b_facet = (srv_b_facet = r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" ");
+                } else if (10 == a) {
+                  eb_power_val = r.getAttribute("val");
+                  eb_power_facet = (eb_power_facet = r.getAttribute("display"))
+                    .split(" ")
+                    .slice(0, -3)
+                    .join(" ");
+                }
+              }
+          }
+          temp_val && (temp_val = temp_val.toFixed(2));
+          $("#roomTemp").html(temp_val + " " + temp_facet);
+          $("#roomHum").html(hum_val + " " + hum_facet);
+          $("#PUE").html(pue_val + " " + pue_facet);
+          $("#PF").html(pf_val + " " + pf_facet);
+          $("#ikW").html(ikW_val + " " + ikW_facet);
+          $("#phase-r").html(phase_r_val + " " + phase_r_facet);
+          $("#phase-y").html(phase_y_val + " " + phase_y_facet);
+          $("#phase-b").html(phase_b_val + " " + phase_b_facet);
+          $("#phase-r1").html(phase_r1_val + " " + phase_r1_facet);
+          $("#phase-y1").html(phase_y1_val + " " + phase_y1_facet);
+          $("#phase-b1").html(phase_b1_val + " " + phase_b1_facet);
+          $("#srv_a").html(srv_a_facet);
+          $("#srv_b").html(srv_b_facet);
+          if ("true" == srv_a_val) {
+            $("#srv_a").addClass("bg-success");
+            $("#srv_a").removeClass("bg-danger");
+          } else {
+            $("#srv_a").addClass("bg-danger");
+            $("#srv_a").removeClass("bg-success");
+          }
+          if ("true" == srv_b_val) {
+            $("#srv_b").addClass("bg-success");
+            $("#srv_b").removeClass("bg-danger");
+          } else {
+            $("#srv_b").addClass("bg-danger");
+            $("#srv_b").removeClass("bg-success");
+          }
+          if ("true" == eb_power_val) {
+            $("#eb_power").addClass("bg-success");
+            $("#eb_power").removeClass("bg-danger");
+          } else {
+            $("#eb_power").addClass("bg-danger");
+            $("#eb_power").removeClass("bg-success");
+          }
+          $("#fuel_stock").html(fuel_stk_val + " " + fuel_stk_facet);
+          $("#fuel_bkp_hr").html(fuel_bkp_hr_val + " " + fuel_bkp_hr_facet);
+        });
+      }, 5000);
+
+      const table_URL = url + "/obix/config/Drivers/Dashboard/table_sec/",
+        dynamicTableData = [],
+        getTableData = () => {
+          fetch(table_URL)
+            .then((response) => response.text())
+            .then((data) => {
+              const a = new DOMParser()
+                .parseFromString(data, "text/xml")
+                .getElementsByTagName("ref");
+              dynamicTableData.length = 0;
+
+              // Start processing table data sequentially
+              return processTableData(a, 0);
+            })
+            .then(() => {
+              // Update the table after all fetch requests are completed
+              $("#dynamicTable tbody").html("");
+              for (let t = 0; t < dynamicTableData.length; t++) {
+                const a = dynamicTableData[t];
+                let e = "<tr>";
+                for (let r = 0; r < a.length; r++) e += "<td>" + a[r] + "</td>";
+                e += "</tr>";
+                $("#dynamicTable tbody").append(e);
+              }
+            })
+            .catch((error) =>
+              console.error("Error fetching table data:", error)
+            );
+        };
+
+      const processTableData = (a, index) => {
+        if (index < a.length) {
+          const e = a[index],
+            r = e.getAttribute("name"),
+            i = [index + 1, e.getAttribute("displayName") || r],
+            o = url + "/obix/config/Drivers/Dashboard/table_sec/" + r;
+
+          return fetch(o)
+            .then((response) => response.text())
+            .then((data) => {
+              const a = new DOMParser()
+                .parseFromString(data, "text/xml")
+                .getElementsByTagName("ref");
+
+              for (let t = 0; t < a.length; t++) {
+                const e = a[t],
+                  o = e.getAttribute("display"),
+                  r =
+                    t === a.length - 1
+                      ? parseFloat(o).toFixed(2)
+                      : Math.round(parseFloat(o)),
+                  s = "";
+                if (4 !== o.trim().split(/\s+/).length) {
+                  s = o.split(" ")[1];
+                }
+                i.push(r);
+              }
+              dynamicTableData.push(i);
+            })
+            .then(() => processTableData(a, index + 1));
+        } else {
+          return Promise.resolve(); // Resolve the promise when all fetch requests are done
+        }
+      };
+
+      getTableData();
+      setInterval(getTableData, 5000); // Adjust the interval as needed
+    </script>
+  </body>
+</html>
